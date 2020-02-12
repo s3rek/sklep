@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
+import { HeaderComponent} from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './shared/aboutus/aboutus.component';
-import { from } from 'rxjs';
 
 const routes: Routes= [
   {path: '', redirectTo: '/aboutus', pathMatch:'full'},
   {path: 'aboutus', component:AboutusComponent},
+  {path: 'header', component:HeaderComponent},
+  {path: 'footer', component:FooterComponent},
   {path: '**', redirectTo: '/aboutus', pathMatch:'full'},
 ]
 
