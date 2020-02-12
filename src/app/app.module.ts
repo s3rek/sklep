@@ -8,6 +8,8 @@ import { AboutusComponent } from './shared/aboutus/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
 //import { CustommaterialModule } from './custommaterial.module';
 import { MatCardModule} from '@angular/material/card';
+import {SettingsComponent} from './settings/settings.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { MatCardModule} from '@angular/material/card';
     HeaderComponent,
     FooterComponent,
     AboutusComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     //CustommaterialModule
   ],
   providers: [],
