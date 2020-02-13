@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Sanitizer } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -10,6 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule} from '@angular/material/card';
 import {SettingsComponent} from './settings/settings.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material/icon';
+import {HttpClientModule} from '@angular/common/http';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -25,9 +32,30 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatCardModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    //CustommaterialModule
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    HttpClientModule,
+    //CustommaterialModule,
+    MatBadgeModule,
   ],
+  exports: [
+    MatIconModule,
+     MatButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor (iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'fb',
+    sanitizer.bypassSecurityTrustResourceUrl('assets/icons/facebook.svg'));
+    iconRegistry.addSvgIcon(
+      'insta',
+    sanitizer.bypassSecurityTrustResourceUrl('assets/icons/instagram.svg'));
+    iconRegistry.addSvgIcon(
+      'linked',
+    sanitizer.bypassSecurityTrustResourceUrl('assets/icons/linkedin.svg'));
+  }
+}
