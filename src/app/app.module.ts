@@ -6,17 +6,27 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AboutusComponent } from './shared/aboutus/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
-//import { CustommaterialModule } from './custommaterial.module';
-import { MatCardModule} from '@angular/material/card';
+import {HttpClientModule} from '@angular/common/http';
 import {SettingsComponent} from './settings/settings.component';
+import {DomSanitizer} from '@angular/platform-browser';
+//import { CustommaterialModule } from './custommaterial.module';
+import {SetproductComponent} from './admin/setproduct/setproduct.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
-import {HttpClientModule} from '@angular/common/http';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -24,7 +34,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     HeaderComponent,
     FooterComponent,
     AboutusComponent,
-    SettingsComponent
+    SettingsComponent,
+    SetproductComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +49,16 @@ import {MatBadgeModule} from '@angular/material/badge';
     HttpClientModule,
     //CustommaterialModule,
     MatBadgeModule,
+    MatTabsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    
   ],
   exports: [
     MatIconModule,

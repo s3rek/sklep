@@ -1,14 +1,43 @@
 <app-header pageTitle="O nas" iconTitle="info" helpTitle="Aboutuspagehelp"></app-header>
-<mat-card [@fallIn]=state>
-    <mat-card-title>
-        About US page
-    </mat-card-title>
-<mat-card-content>
-    <br>
-    <button routerLink="/settings">ustawienia</button>
-    <br/>
-    <p>
-        abut wus works!
-    </p>
-</mat-card-content>
-</mat-card>
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">trending_up</mat-icon>
+        Zarządzaj
+      </ng-template>
+      Content 1
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">info</mat-icon>
+        O nas
+      </ng-template>
+      Content 2
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">chat</mat-icon>
+        FAQ
+      </ng-template>
+  
+      Content 3
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+          Pro
+        </ng-template>
+    
+        Content 4
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">emoji_flags</mat-icon>
+          Regulamin
+        </ng-template>
+    
+        Content 5
+      </mat-tab>
+  </mat-tab-group>
