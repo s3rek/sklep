@@ -6,13 +6,14 @@
     <mat-icon>{{iconTitle}}</mat-icon>
     {{pageTitle}}
     <span class="example-spacer"></span>
-    <mat-icon [color]="userStatusColor">account_box</mat-icon>
+    <mat-icon [color]="userStatusColor" routerLink="/product">shop</mat-icon>
+    <span class="example-icon"></span>
+    <mat-icon [color]="userStatusColor" routerLink="/admin">account_box</mat-icon>
     <span class="example-icon"></span>
     <mat-icon matBadge={{counter}} matBadgePosition="below" matBadgeColor="warn">shopping_cart</mat-icon>
     <span class="example-icon"></span>
     <mat-icon [matMenuTriggerFor]="helpMenu">help</mat-icon>
     <span class="example-icon"></span>
-    <mat-icon>settings</mat-icon>
 
     
 
@@ -30,7 +31,7 @@
           <a href="{{configData.instalink}}" target="_blank"><button mat-menu-item><mat-icon svgIcon="insta"></mat-icon></button></a>
           <a href="{{configData.linkedinlink}}" target="_blank"><button mat-menu-item><mat-icon svgIcon="linked"></mat-icon></button></a>
           <button mat-menu-item routerLink="/aboutus"><mat-icon>info</mat-icon></button>
-          <button mat-menu-item routerLink="/setproduct"><mat-icon>settings</mat-icon></button>
+          <button mat-menu-item routerLink="/admin"><mat-icon>settings</mat-icon></button>
       </mat-menu>
 
 </mat-toolbar>

@@ -1,0 +1,54 @@
+<app-header pageTitle="Sklep" iconTitle="shopping_cart"></app-header>
+<mat-card>
+    <mat-card-actions align="start">
+        <form #searchForm="ngForm">
+            <mat-form-field class="example-form">
+                <input matInput type="text" placeholder="Wyszukaj" #search="ngModel" ngModel id="search" name="search" minlength="3" maxlength="50">
+            </mat-form-field>
+            <span matTooltip="Search All">
+                <mat-icon color="primary" (click)="this.searchForm.reset();">clear</mat-icon>
+            </span>
+            <span class="small-spacer"></span>
+            <span matTooltip="Search All">
+                <mat-icon color="primary" (click)="getFilterData(search.value)">search</mat-icon>
+            </span>
+        </form>
+            </mat-card-actions>
+            <mat-card-content *ngIf="toggle else showProductDetails">
+                <mat-list role="list">
+                    <!--<mat-list-item *ngFor="let item of members | async" (click)="showDetails(item);toggle=!toggle">-->
+                    <mat-list-item *ngFor="let item of members" (click)="showDetails(item);toggle=!toggle">
+                        <h5 mat-line>{{item.name}}
+                            <mat-icon mat-list-icon>pageview</mat-icon>
+                        </h5>
+                        <p class="label-hint" mat-line> {{item.category}}/ {{item.scategory}}</p>               
+                    </mat-list-item>
+                  </mat-list>          
+            </mat-card-content>
+            <ng-template #showProductDetails>
+                <b>{{myDocData.name}}</b>
+                <span class="small_spacer"></span>
+                <span matTooltip="Show All Products">
+                    <mat-icon color="primary" (click)="toggle=!toggle">backspace</mat-icon>
+                </span>
+                <p class="label-go" mat-line>{{myDocData.sname}}</p>
+                <p class="label-hint" mat-line> {{myDocData.descr}}</p>
+                <p class="label-go" mat-line> Cena: {{myDocData.price}}</p>
+                <p class="label-error" mat-line> Rabat: {{myDocData.discount}}</p>
+            <mat-error *ngIf="savedChanges">
+                <br>
+                <br> Twój koszyk został zaktualizowany!
+                <mat-icon (click)="savedChanges=!savedChanges" color="primary">close</mat-icon>
+                <span class="med-spacer"></span>
+                <br>
+            </mat-error>
+                <br>
+                <mat-icon (click)="countProd('remove')" color="primary">remove</mat-icon>
+                {{counter}}
+                <mat-icon (click)="countProd('add')" color="primary">add</mat-icon>
+                <span class="med-spacer"></span>
+                <button [disabled]="counter < 1" mat-raised-button color="primary" (click)="addToCart(myDocData, counter)">Dodaj do koszyka</button>
+                <br>
+                <img [src]="profileUrl" width="300" height="300" />
+            </ng-template>
+</mat-card>
